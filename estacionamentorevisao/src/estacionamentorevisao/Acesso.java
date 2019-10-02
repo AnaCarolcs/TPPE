@@ -12,7 +12,6 @@ public class Acesso {
 	           minutosEntrada;
 	public int horaSaida, 
 			   minutosSaida;
-	
 
 
 	public Acesso() {}
@@ -26,8 +25,14 @@ public class Acesso {
 		this.minutosEntrada = minutosEntrada;
 	}
 	
+ //	CalcularValor cV = new CalcularValor(this, horaEntrada, minutosEntrada, horaSaida, minutosSaida);
 	
-	public float calcularValor() { 
+	public float calcularValor() {
+		return new CalcularValor(this, horaEntrada, minutosEntrada, horaSaida, minutosSaida).calculo();
+		//return cV.calculo();
+	}
+	
+	/*public float calcularValor() { 
 		int quantidadeHoras = horaSaida - horaEntrada; 
 		int quantidadeMinutos; 
 		
@@ -48,15 +53,20 @@ public class Acesso {
 			quantidadeMinutos = 0;
 		}
 		
-		float valorTotal = 0; 
-		valorTotal += quantidadeHoras * VALOR_HORA;
-		valorTotal += Math.ceil(quantidadeMinutos / 15.0) * VALOR_FRACAO;		
+		float valorTotal = 0, valorHorasTotal = 0, valorFracaoTotal = 0; 
+		
+		valorHorasTotal += quantidadeHoras * VALOR_HORA;
+		valorFracaoTotal += Math.ceil(quantidadeMinutos / 15.0) * VALOR_FRACAO;		
+		
+		valorTotal = valorFracaoTotal += valorHorasTotal;
 		
 		if (quantidadeHoras >=9)
 			return VALOR_DIARIA;
 		else 
 			return valorTotal;
 	}
+	*/
+	
 	
 	
 	public void setHoraSaida(int horaSaida) {
